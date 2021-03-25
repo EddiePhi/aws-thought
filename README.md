@@ -1,2 +1,2 @@
 # aws-thought
-An app that allows you to upload images with words.
+An app that allows you to upload your thoughts and add images.
