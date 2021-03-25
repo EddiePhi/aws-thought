@@ -40,7 +40,7 @@ router.get('/users/:username', (req, res) => {
     ExpressionAttributeValues: {
       ":user": req.params.username
     },
-    ProjectionExpression: "#th, #ca, #img",
+    ProjectionExpression: "#un, #th, #ca, #img",
     ScanIndexForward: false // originally missing, added from Lesson 2: Integrate DynamoDB
   };
 
