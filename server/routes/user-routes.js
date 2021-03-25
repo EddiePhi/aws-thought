@@ -15,6 +15,7 @@ router.get('/users', (req, res) => {
   const params = {
     TableName: table
   };
+  // Scan return all items in the table
   dynamodb.scan(params, (err, data) => {
     if (err) {
       res.status(500).json(err); // an error occurred
@@ -38,7 +39,8 @@ router.get('/users/:username', (req, res) => {
     ExpressionAttributeValues: {
       ":user": req.params.username
     },
-    ProjectionExpression: "#th, #ca"
+    ProjectionExpression: "#th, #ca",
+    ScanIndexForward: false // originally missing, added from Lesson 2: Integrate DynamoDB
   };
 
   dynamodb.query(params, (err, data) => {
